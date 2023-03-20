@@ -5,7 +5,7 @@ const init = async () => {
   const server = Hapi.server({
     // Kriteria 1 : Aplikasi menggunakan port 9000
     port: 9000,
-    host: 'localhost',
+    host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
     routes: {
       cors: {
         origin: ['*'],
